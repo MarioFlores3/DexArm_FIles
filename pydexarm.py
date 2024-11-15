@@ -170,6 +170,18 @@ class Dexarm:
                 if len(str) > 0:
                     if str.find("ok") > -1:
                         return x,y,z
+    def go_to_custom_home(self, x, y, z, feedrate=2000):
+        '''
+        Move the DexArm to a custom home position.
+        :param x: Target X coordinate
+        :param y: Target Y coordinate
+        :param z: Target Z coordinate
+        :param feedrate: Speed of the movement (default: 2000)
+        '''
+        cmd = f"G1 X{x} Y{y} Z{z} F{feedrate}\r\n"
+        self._send_cmd(cmd)
+        print(f"Moved to custom home: X={x}, Y={y}, Z={z}")
+                    
             
         
         
